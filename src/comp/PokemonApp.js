@@ -10,7 +10,7 @@ const PokemonApp = () => {
   const [loadingText, setLoadingText] = useState('Loading Pokémon');
 
   const itemsPerPage = 10;
-  const totalPokemons = 1281;
+  const totalPokemons = 1010;
 
   useEffect(() => {
     const fetchPokemonData = async () => {
