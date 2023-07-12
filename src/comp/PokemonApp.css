@@ -74,8 +74,14 @@ body {
   .pokemon-card {
     background-color: white;
     padding: 10px;
-    padding-bottom:30px;
+    padding-bottom: 30px;
     border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease; /* Add transition for smooth effect */
+  }
+  
+  .pokemon-card:hover {
+    transform: scale(1.05); /* Enlarge the card on hover */
   }
   
   .pokemon-name {
