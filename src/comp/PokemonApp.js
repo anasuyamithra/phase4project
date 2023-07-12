@@ -3,10 +3,11 @@ import React, { useState, useEffect } from 'react';
 const PokemonApp = () => {
   const [pokemonList, setPokemonList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(129);
+  const [totalPages, setTotalPages] = useState(0);
   const [searchTerm, setSearchTerm] = useState('');
 
   const itemsPerPage = 10;
+  const totalPokemons = 1281;
 
   useEffect(() => {
     const fetchPokemonData = async () => {
@@ -34,13 +35,14 @@ const PokemonApp = () => {
 
       const fetchAllPokemonData = async () => {
         const allPokemonData = [];
-        for (let id = 1; id <= 1281; id++) {
+        for (let id = 1; id <= totalPokemons; id++) {
           const pokemon = await getPokemonDetails(id);
           if (pokemon) {
             allPokemonData.push(pokemon);
           }
         }
         setPokemonList(allPokemonData);
+        setTotalPages(Math.ceil(allPokemonData.length / itemsPerPage));
       };
 
       fetchAllPokemonData();
