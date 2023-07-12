@@ -5,6 +5,8 @@ const PokemonApp = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
   const [searchTerm, setSearchTerm] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadingText, setLoadingText] = useState('Loading Pokémon');
 
   const itemsPerPage = 10;
   const totalPokemons = 1281;
@@ -43,12 +45,27 @@ const PokemonApp = () => {
         }
         setPokemonList(allPokemonData);
         setTotalPages(Math.ceil(allPokemonData.length / itemsPerPage));
+        setIsLoading(false);
       };
 
       fetchAllPokemonData();
     };
 
     fetchPokemonData();
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setLoadingText((prevText) => {
+        if (prevText.endsWith('...')) {
+          return 'Loading Pokémon';
+        } else {
+          return prevText + '.';
+        }
+      });
+    }, 500);
+
+    return () => clearInterval(interval);
   }, []);
 
   const handleSearch = (event) => {
@@ -82,18 +99,24 @@ const PokemonApp = () => {
         onChange={handleSearch}
         placeholder="Search by name or ID..."
       />
-      <ul>
-        {displayedPokemonList.map((pokemon) => (
-          <li key={pokemon.id}>
-            <span id="name">{pokemon.name}</span>
-            <img src={pokemon.image} alt={pokemon.name} />
-            <p>CP: {pokemon.cp}</p>
-            <p>Attack: {pokemon.attack}</p>
-            <p>Defense: {pokemon.defense}</p>
-            <p>Type: {pokemon.type}</p>
-          </li>
-        ))}
-      </ul>
+      {isLoading ? (
+        <p>
+          {loadingText}
+        </p>
+      ) : (
+        <ul>
+          {displayedPokemonList.map((pokemon) => (
+            <li key={pokemon.id}>
+              <span id="name">{pokemon.name}</span>
+              <img src={pokemon.image} alt={pokemon.name} />
+              <p>CP: {pokemon.cp}</p>
+              <p>Attack: {pokemon.attack}</p>
+              <p>Defense: {pokemon.defense}</p>
+              <p>Type: {pokemon.type}</p>
+            </li>
+          ))}
+        </ul>
+      )}
       <div id="pagination">
         <button id="previous" disabled={currentPage === 1} onClick={handlePreviousPage}>
           Previous
