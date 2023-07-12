@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './PokemonApp.css';
 
 const PokemonApp = () => {
   const [pokemonList, setPokemonList] = useState([]);
@@ -90,51 +91,51 @@ const PokemonApp = () => {
   const displayedPokemonList = filteredPokemonList.slice(startIndex, endIndex);
 
   return (
-    <div style={{ backgroundColor: '#ffd000', padding: '20px' }}>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <img src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c325.png" alt="Pikachu" style={{ height: '80px', marginRight: '10px' }} />
-        <h1>Pokemon Database</h1>
+    <div className="pokemon-app">
+      <div className="pokemon-header">
+        <img src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c325.png" alt="Pikachu" className="pokemon-logo" />
+        <h1 className="pokemon-title">Pokemon Database</h1>
       </div>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
+      <div className="pokemon-search">
         <input
           id="search"
           type="text"
           value={searchTerm}
           onChange={handleSearch}
           placeholder="Search by name or ID..."
-          style={{ padding: '10px', marginRight: '10px' }}
+          className="pokemon-input"
         />
-        <button onClick={handleSearch}>Search</button>
+        <button onClick={handleSearch} className="pokemon-button">Search</button>
       </div>
       {isLoading ? (
         <p>{loadingText}</p>
       ) : (
-        <ul style={{ listStyleType: 'none', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px' }}>
+        <ul className="pokemon-list">
           {displayedPokemonList.map((pokemon) => (
-            <li key={pokemon.id} style={{ backgroundColor: 'white', padding: '10px', borderRadius: '5px' }}>
-              <h2>{pokemon.name}</h2>
-              <img src={pokemon.image} alt={pokemon.name} style={{ height: '150px' }} />
-              <p>
+            <li key={pokemon.id} className="pokemon-card">
+              <h2 className="pokemon-name">{pokemon.name}</h2>
+              <img src={pokemon.image} alt={pokemon.name} className="pokemon-image" />
+              <p className="pokemon-info">
                 <strong>CP:</strong> {pokemon.cp}
               </p>
-              <p>
+              <p className="pokemon-info">
                 <strong>Attack:</strong> {pokemon.attack}
               </p>
-              <p>
+              <p className="pokemon-info">
                 <strong>Defense:</strong> {pokemon.defense}
               </p>
-              <p>
+              <p className="pokemon-info">
                 <strong>Type:</strong> {pokemon.type}
               </p>
             </li>
           ))}
         </ul>
       )}
-      <div id="pagination" style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+      <div className="pokemon-pagination">
         <button id="previous" disabled={currentPage === 1} onClick={handlePreviousPage}>
           Previous
         </button>
-        <span style={{ margin: '0 10px' }}>
+        <span>
           Page {currentPage} of {totalPages}
         </span>
         <button id="next" disabled={currentPage === totalPages} onClick={handleNextPage}>
