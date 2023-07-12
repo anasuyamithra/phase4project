@@ -132,13 +132,13 @@ const PokemonApp = () => {
         </ul>
       )}
       <div className="pokemon-pagination">
-        <button id="previous" disabled={currentPage === 1} onClick={handlePreviousPage}>
+      <button id="pokemon-pagination-previous" disabled={currentPage === 1} onClick={handlePreviousPage}>
           Previous
         </button>
-        <span>
+        <span className="pokemon-pagination-text">
           Page {currentPage} of {totalPages}
         </span>
-        <button id="next" disabled={currentPage === totalPages} onClick={handleNextPage}>
+        <button id="pokemon-pagination-next" disabled={currentPage === totalPages} onClick={handleNextPage}>
           Next
         </button>
       </div>

@@ -1,5 +1,5 @@
 body {
-    font-family: 'Franklin Gothic', sans-serif;
+    font-family: 'Arial Black', sans-serif;
   }
   
   .pokemon-app {
@@ -21,7 +21,7 @@ body {
   
   .pokemon-title {
     font-size: 36px;
-    font-family: 'Franklin Gothic', sans-serif;
+    font-family: 'Arial Black', sans-serif;
     margin-bottom: 10px;
   }
   
@@ -68,6 +68,7 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+    padding-right:40px;
   }
   
   .pokemon-card {
@@ -79,7 +80,8 @@ body {
   
   .pokemon-name {
     font-size: 20px;
-    margin-bottom: 10px;font-family: 'Bangers', cursive;
+    margin-bottom: 10px;
+    font-family: 'Arial Black', sans-serif;
   }
   
   .pokemon-image {
@@ -94,6 +96,30 @@ body {
   .pokemon-pagination {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-top: 20px;
   }
   
+  #pokemon-pagination-previous,
+  #pokemon-pagination-next {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: #e0a801;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #pokemon-pagination-previous:hover,
+  #pokemon-pagination-next:hover {
+    background-color: #f41f1f;
+  }
+  
+  .pokemon-pagination-text {
+    margin: 0 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
