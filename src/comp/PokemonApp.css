@@ -1,4 +1,8 @@
-.pokemon-app {
+body {
+    font-family: 'Franklin Gothic', sans-serif;
+  }
+  
+  .pokemon-app {
     background-color: #ffd000;
     padding: 20px;
   }
@@ -6,23 +10,26 @@
   .pokemon-header {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; /* Update to center */
+    flex-wrap: wrap;
   }
   
   .pokemon-logo {
-    height: 80px;
+    height: 200px;
     margin-right: 10px;
   }
   
   .pokemon-title {
-    font-size: 24px;
+    font-size: 36px;
+    font-family: 'Franklin Gothic', sans-serif;
+    margin-bottom: 5px; /* Reduce margin */
   }
   
   .pokemon-search {
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
+    justify-content: center; /* Update to center */
+    margin-bottom: 10px; /* Reduce margin */
   }
   
   .pokemon-input {
@@ -48,8 +55,9 @@
   }
   
   .pokemon-name {
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 10px;
+    font-family: 'Franklin Gothic', sans-serif;
   }
   
   .pokemon-image {
@@ -58,6 +66,7 @@
   
   .pokemon-info {
     margin-bottom: 5px;
+    font-family: 'Lucida Console', monospace;
   }
   
   .pokemon-pagination {
