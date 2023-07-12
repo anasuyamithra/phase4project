@@ -102,7 +102,7 @@ const PokemonApp = () => {
           type="text"
           value={searchTerm}
           onChange={handleSearch}
-          placeholder="Search by name or ID..."
+          placeholder="Search Pokemon"
           className="pokemon-input"
         />
         <button onClick={handleSearch} className="pokemon-button">Search</button>

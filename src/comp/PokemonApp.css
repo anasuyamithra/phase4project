@@ -10,8 +10,8 @@ body {
   .pokemon-header {
     display: flex;
     align-items: center;
-    justify-content: center; /* Update to center */
-    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
   }
   
   .pokemon-logo {
@@ -22,23 +22,45 @@ body {
   .pokemon-title {
     font-size: 36px;
     font-family: 'Franklin Gothic', sans-serif;
-    margin-bottom: 5px; /* Reduce margin */
+    margin-bottom: 10px;
   }
   
   .pokemon-search {
     display: flex;
     align-items: center;
-    justify-content: center; /* Update to center */
-    margin-bottom: 10px; /* Reduce margin */
+    justify-content: center;
+    margin-bottom: 20px;
   }
   
   .pokemon-input {
-    padding: 10px;
+    padding: 10px 20px;
     margin-right: 10px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    background-color: white;
+    outline: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .pokemon-input:hover,
+  .pokemon-input:focus {
+    background-color: #fff5cd;
   }
   
   .pokemon-button {
     padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #f41f1f;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .pokemon-button:hover {
+    background-color: #b91c1c;
   }
   
   .pokemon-list {
@@ -51,13 +73,13 @@ body {
   .pokemon-card {
     background-color: white;
     padding: 10px;
+    padding-bottom:30px;
     border-radius: 5px;
   }
   
   .pokemon-name {
     font-size: 20px;
-    margin-bottom: 10px;
-    font-family: 'Franklin Gothic', sans-serif;
+    margin-bottom: 10px;font-family: 'Bangers', cursive;
   }
   
   .pokemon-image {
