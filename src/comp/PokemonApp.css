@@ -49,12 +49,12 @@ body {
   }
   
   .pokemon-button {
-    padding: 10px 20px;
+    padding: 8px 15px;
     border: none;
     border-radius: 20px;
     background-color: #f41f1f;
     color: white;
-    font-size: 16px;
+    font-size: 18px;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
@@ -122,6 +122,20 @@ body {
   #pokemon-pagination-next:hover {
     background-color: #f41f1f;
   }
+
+  #pokemon-pagination-previous[disabled],
+    #pokemon-pagination-next[disabled] {
+    background-color: #f4c742;
+    color: #b18500;
+    cursor: not-allowed;
+    pointer-events: none;
+    /* Add any additional styling for the disabled state */
+    }
+
+    #pokemon-pagination-previous[disabled]:hover,
+    #pokemon-pagination-next[disabled]:hover {
+    /* Remove any hover styles for the disabled state */
+    }
   
   .pokemon-pagination-text {
     margin: 0 20px;

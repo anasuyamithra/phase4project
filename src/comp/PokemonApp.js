@@ -70,9 +70,13 @@ const PokemonApp = () => {
   }, []);
 
   const handleSearch = (event) => {
-    setSearchTerm(event.target.value.toLowerCase());
+    //event.preventDefault();
+    const inputValue = event.target.value.toLowerCase();
+    setSearchTerm(inputValue);
     setCurrentPage(1);
   };
+  
+  
 
   const handlePreviousPage = () => {
     setCurrentPage((prevPage) => prevPage - 1);
@@ -105,7 +109,7 @@ const PokemonApp = () => {
           placeholder="Search Pokemon"
           className="pokemon-input"
         />
-        <button onClick={handleSearch} className="pokemon-button">Search</button>
+        <button onClick={handleSearch} className="pokemon-button">⌫</button>
       </div>
       {isLoading ? (
         <p>{loadingText}</p>
