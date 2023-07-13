@@ -1,0 +1,145 @@
+body {
+    font-family: 'Arial Black', sans-serif;
+  }
+  
+  .pokemon-app {
+    background-color: #ffd000;
+    padding: 20px;
+  }
+  
+  .pokemon-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .pokemon-logo {
+    height: 200px;
+    margin-right: 10px;
+  }
+  
+  .pokemon-title {
+    font-size: 36px;
+    font-family: 'Arial Black', sans-serif;
+    margin-bottom: 10px;
+  }
+  
+  .pokemon-search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .pokemon-input {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    background-color: white;
+    outline: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .pokemon-input:hover,
+  .pokemon-input:focus {
+    background-color: #fbebae;
+  }
+  
+  .pokemon-button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background-color: #f41f1f;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .pokemon-button:hover {
+    background-color: #b91c1c;
+  }
+  
+  .pokemon-list {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding-right:40px;
+  }
+  
+  .pokemon-card {
+    background-color: white;
+    padding: 10px;
+    padding-bottom: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease; /* Add transition for smooth effect */
+  }
+  
+  .pokemon-card:hover {
+    transform: scale(1.05); /* Enlarge the card on hover */
+  }
+  
+  .pokemon-name {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-family: 'Arial Black', sans-serif;
+  }
+  
+  .pokemon-image {
+    height: 150px;
+  }
+  
+  .pokemon-info {
+    margin-bottom: 5px;
+    font-family: 'Lucida Console', monospace;
+  }
+  
+  .pokemon-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  #pokemon-pagination-previous,
+  #pokemon-pagination-next {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: #e0a801;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #pokemon-pagination-previous:hover,
+  #pokemon-pagination-next:hover {
+    background-color: #f41f1f;
+  }
+
+  #pokemon-pagination-previous[disabled],
+    #pokemon-pagination-next[disabled] {
+    background-color: #f4c742;
+    color: #b18500;
+    cursor: not-allowed;
+    pointer-events: none;
+    /* Add any additional styling for the disabled state */
+    }
+
+    #pokemon-pagination-previous[disabled]:hover,
+    #pokemon-pagination-next[disabled]:hover {
+    /* Remove any hover styles for the disabled state */
+    }
+  
+  .pokemon-pagination-text {
+    margin: 0 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
