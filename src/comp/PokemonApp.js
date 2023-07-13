@@ -44,16 +44,19 @@ const PokemonApp = () => {
             allPokemonData.push(pokemon);
           }
         }
-        setPokemonList(allPokemonData);
-        setTotalPages(Math.ceil(allPokemonData.length / itemsPerPage));
-        setIsLoading(false);
+        const filteredList = allPokemonData.filter(
+            (pokemon) => pokemon.name.toLowerCase().includes(searchTerm) || String(pokemon.id) === searchTerm
+          );
+          setPokemonList(filteredList);
+          setTotalPages(Math.ceil(filteredList.length / itemsPerPage));
+          setIsLoading(false);
       };
 
       fetchAllPokemonData();
     };
 
     fetchPokemonData();
-  }, []);
+  }, [searchTerm]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -69,10 +72,15 @@ const PokemonApp = () => {
     return () => clearInterval(interval);
   }, []);
 
+
   const handleSearch = (event) => {
     //event.preventDefault();
     const inputValue = event.target.value.toLowerCase();
     setSearchTerm(inputValue);
+    const filteredPokemonList = pokemonList.filter(
+        (pokemon) => pokemon.name.toLowerCase().includes(inputValue) || String(pokemon.id) === inputValue
+      );
+      setTotalPages(Math.ceil(filteredPokemonList.length / itemsPerPage));      
     setCurrentPage(1);
   };
   
